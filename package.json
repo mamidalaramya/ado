@@ -1,0 +1,24 @@
+{
+  "name": "ado",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "openCypressUI": "npx cypress open",
+    "cy:run": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mamidalaramya/ado.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mamidalaramya/ado/issues"
+  },
+  "homepage": "https://github.com/mamidalaramya/ado#readme",
+  "dependencies": {
+    "cypress": "^10.6.0"
+  }
+}
