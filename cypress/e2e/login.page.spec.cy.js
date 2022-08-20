@@ -1,5 +1,6 @@
 describe('validating the login page of the SWAGLABS application ', () => {
 
+    const password = 'secret_sauce'
 
     describe('login to the page with valid credentials', () => {
         before(() => {
@@ -7,21 +8,21 @@ describe('validating the login page of the SWAGLABS application ', () => {
             // so we must tell it to visit our website with the `cy.visit()` command.
             // Since we want to visit the same URL at the start of all our tests,
             // we include it in our beforeEach function so that it runs before each test
-            cy.task('log', 'before')
-        })
+            cy.visit("https://www.saucedemo.com/")
 
-        it('navigate to the SWAGLABS page', () => {
-            cy.task('log', 'navigate to the SWAGLABS page')
         })
         it('enter the user name and password', () => {
-            cy.task('log', 'enter the user name and password')
+            const userId = 'standard_user'
+            cy.get('#user-name').type(userId)
+            cy.get('#password').type(password)
+
         })
         it('click on login button', () => {
-            cy.task('log', 'click on login button')
+            cy.get('[data-test="login-button"]').click();
 
         })
         it('verify the logged in page', () => {
-            cy.task('log', 'verify the logged in page')
+            cy.get('span').contains("PRODUCTS", { matchCase: false })
 
         })
     })
@@ -32,17 +33,17 @@ describe('validating the login page of the SWAGLABS application ', () => {
             // so we must tell it to visit our website with the `cy.visit()` command.
             // Since we want to visit the same URL at the start of all our tests,
             // we include it in our beforeEach function so that it runs before each test
-            cy.task('log', 'before')
-        })
-        it('navigate to the SWAGLABS page', () => {
-            cy.task('log', 'navigate to the SWAGLABS page')
-
+            cy.visit("https://www.saucedemo.com/")
         })
         it('enter the locked credentials', () => {
-            cy.task('log', 'enter the locked credentials')
+            const userId="locked_out_user"
+            cy.get('#user-name').type(userId)
+            cy.get('#password').type(password)
         })
         it('verify the message"Sorry, this user has been locked out." after click on login button', () => {
-            cy.task('log', 'verify the message"Sorry, this user has been locked out." after click on login button')
+            cy.get('[data-test="login-button"]').click();
+            cy.get('h3').contains("Sorry, this user has been locked out.", { matchCase: false })
+
         })
 
     })
@@ -52,19 +53,18 @@ describe('validating the login page of the SWAGLABS application ', () => {
             // so we must tell it to visit our website with the `cy.visit()` command.
             // Since we want to visit the same URL at the start of all our tests,
             // we include it in our beforeEach function so that it runs before each test
-            cy.task('log', 'before')
-        })
-        it('navigate to the SWAGLABS page', () => {
-            cy.task('log', 'navigate to the SWAGLABS page')
+            cy.visit("https://www.saucedemo.com/")
         })
         it('enter the problem user credentials', () => {
-            cy.task('log', 'enter the problem user credentials')
+            const userId="problem_user"
+            cy.get('#user-name').type(userId)
+            cy.get('#password').type(password)
         })
         it('click on login button', () => {
-            cy.task('log', 'click on login button')
+            cy.get('[data-test="login-button"]').click();
         })
         it('verify the logged in page', () => {
-            cy.task('log', 'verify the logged in page')
+            cy.get('span').contains("PRODUCTS", { matchCase: false })
         })
 
     })
@@ -74,19 +74,19 @@ describe('validating the login page of the SWAGLABS application ', () => {
             // so we must tell it to visit our website with the `cy.visit()` command.
             // Since we want to visit the same URL at the start of all our tests,
             // we include it in our beforeEach function so that it runs before each test
-            cy.task('log', 'before')
-        })
-        it('navigate to the SWAGLABS page', () => {
-            cy.task('log', 'navigate to the SWAGLABS page')
+            cy.visit("https://www.saucedemo.com/")
         })
         it('enter the problem user credentials', () => {
-            cy.task('log', 'enter the problem user credentials')
+            const userId="performance_glitch_user"
+            cy.get('#user-name').type(userId)
+            cy.get('#password').type(password)
         })
         it('click on login button', () => {
-            cy.task('log', 'click on login button')
+            cy.get('[data-test="login-button"]').click();
         })
         it('verify the logged in page', () => {
-            cy.task('log', 'verify the logged in page')
+            cy.get('span[class="title"]').invoke('val').then(sometext =>cy.log(sometext))
+
         })
 
     })
